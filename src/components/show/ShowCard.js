@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { StyledShowCard } from './ShowCard.styled';
 
 const ShowCard = ({ id, image, name, language, summary }) => {
   const summaryAsText = summary
@@ -8,8 +9,8 @@ const ShowCard = ({ id, image, name, language, summary }) => {
     : 'No description';
 
   return (
-    <div>
-      <div>
+    <StyledShowCard>
+      <div className="img-wrapper">
         <img src={image} alt="show" />
       </div>
 
@@ -18,11 +19,11 @@ const ShowCard = ({ id, image, name, language, summary }) => {
 
       <p>{summaryAsText}</p>
 
-      <div>
+      <div className="btns">
         <Link to={`/show/${id}`}>Read more</Link>
         <button type="button">Star me</button>
       </div>
-    </div>
+    </StyledShowCard>
   );
 };
 
