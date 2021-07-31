@@ -3,22 +3,23 @@ import ActorGrid from '../components/actor/ActorGrid';
 import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/show/ShowGrid';
 import { getApi } from '../misc/config';
+import { useLastQuery } from '../misc/custom-hooks';
 
 const Home = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [searchOptions, setSearchOptions] = useState('shows');
 
   const isSearchShow = searchOptions === 'shows';
 
-  const onInputChange = ev => {
-    setInput(ev.target.value);
-  };
-
   const onSearch = () => {
     getApi(`/search/${searchOptions}?q=${input}`).then(result => {
       setResults(result);
     });
+  };
+
+  const onInputChange = ev => {
+    setInput(ev.target.value);
   };
 
   const onKeyDown = ev => {
