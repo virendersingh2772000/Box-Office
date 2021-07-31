@@ -12,7 +12,7 @@ export const TitleWrapper = styled.div`
   }
 
   p {
-    color: ${({ theme }) => theme.mainColors.dark};
+    color: ${({ theme }) => theme.mainColors.gray};
     margin: 0;
   }
 `;

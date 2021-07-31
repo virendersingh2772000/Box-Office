@@ -4,13 +4,14 @@ import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/show/ShowGrid';
 import { getApi } from '../misc/config';
 import { useLastQuery } from '../misc/custom-hooks';
-import DefaultShow from '../components/show/DefaultShow';
+// import DefaultShow from '../components/show/DefaultShow';
 import {
   RadioInputsWrapper,
   SearchButtonWrapper,
   SearchInput,
 } from './Home.styled';
 import CustomRadio from '../components/CustomRadio';
+import MyFile from '../components/show/MyFile';
 
 const Home = () => {
   const [input, setInput] = useLastQuery();
@@ -18,6 +19,16 @@ const Home = () => {
   const [searchOptions, setSearchOptions] = useState('shows');
 
   const isSearchShow = searchOptions === 'shows';
+
+  // const myInput = () => {
+  //   Math.floor(Math.random() * (10 - 1));
+  // };
+
+  // const myFunction = () => {
+  //   getApi(`/search/${searchOptions}?q=${myInput}`).then(result => {
+  //     setFun(result);
+  //   });
+  // };
 
   const onSearch = () => {
     getApi(`/search/${searchOptions}?q=${input}`).then(result => {
@@ -48,7 +59,7 @@ const Home = () => {
       );
     }
 
-    return <DefaultShow />;
+    return <MyFile />;
   };
 
   const onRadioChange = ev => {
