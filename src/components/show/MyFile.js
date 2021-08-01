@@ -7,7 +7,7 @@ const MyFile = () => {
 
   useEffect(() => {
     const a = [];
-    while (a.length < 5) {
+    while (a.length < 8) {
       const r = Math.floor(Math.random() * 10000) + 1;
       if (a.indexOf(r) === -1) a.push(r);
     }
